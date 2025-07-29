@@ -1,9 +1,9 @@
 
-## BPX Beacon Client
+## Corpochain Beacon Client
 
-Official Python implementation of the BPX Beacon Chain: full node, introducer, farmer and timelord
+Official Python implementation of the Corpochain Beacon Chain: full node, introducer, farmer and timelord
 
-BPX is a new generation Ethereum-compatible blockchain based upon an innovative consensus algorithm, Proof of Space and Time known from the Chia Network. Proof of Space is a cryptographic technique where farmers prove that they allocate unused hard disk space to the network. Proof of Time increases the overall security of the blockchain.
+Corpochain is a new generation Ethereum-compatible blockchain based upon an innovative consensus algorithm, Proof of Space and Time known from the Chia Network. Proof of Space is a cryptographic technique where farmers prove that they allocate unused hard disk space to the network. Proof of Time increases the overall security of the blockchain.
 
 ## Installation
 
@@ -14,13 +14,13 @@ BPX is a new generation Ethereum-compatible blockchain based upon an innovative 
 1. Download DEB package
 2. Install it using the following command:
 ```shell
-dpkg -i bpx-beacon-client-*.deb
+dpkg -i corpochain-beacon-client-*.deb
 ```
 ### CentOS / Red Hat / Fedora
 1. Download RPM package
 2. Install it using the following command:
 ```shell
-rpm -i bpx-beacon-client-*.deb
+rpm -i corpochain-beacon-client-*.deb
 ```
 
 ## Building the source
@@ -42,31 +42,31 @@ This instruction is for MacOS, Ubuntu, CentOS, RedHat, WSL2, Amazon Linux 2 and 
 
 ## Usage
 
-> :warning: **You need both Beacon Client and [Execution Client](https://github.com/bpx-chain/bpx-execution-client) to synchronize with the network.**
+> :warning: **You need both Beacon Client and [Execution Client](https://github.com/Corpochain-Network/corpochain-execution-client) to synchronize with the network.**
 
 ### Windows
-1. To launch the full node software with a GUI simply use the "BPX Beacon Client" shortcut on your desktop or Start Menu
+1. To launch the full node software with a GUI simply use the "Corpochain Beacon Client" shortcut on your desktop or Start Menu
 2. To switch to testnet use the following commands:
 ```shell
-cd "%userprofile%\AppData\Local\Programs\BPX Beacon Client\resources\app.asar.unpacked\daemon"
-bpx configure --testnet true
+cd "%userprofile%\AppData\Local\Programs\Corpochain Beacon Client\resources\app.asar.unpacked\daemon"
+corpochain configure --testnet true
 ```
 3. To switch back to the mainnet use the following commands:
 ```shell
-cd "%userprofile%\AppData\Local\Programs\BPX Beacon Client\resources\app.asar.unpacked\daemon"
-bpx configure --testnet false
+cd "%userprofile%\AppData\Local\Programs\Corpochain Beacon Client\resources\app.asar.unpacked\daemon"
+corpochain configure --testnet false
 ```
 
 ### Linux
 1. To launch the full node software with a GUI use the following command:
 ```shell
-bpx-beacon-client &
+corpochain-beacon-client &
 ```
 2. To switch to testnet use the following command:
 ```shell
-bpx configure --testnet true
+corpochain configure --testnet true
 ```
 3. To switch back to the mainnet use the following command:
 ```shell
-bpx configure --testnet false
+corpochain configure --testnet false
 ```

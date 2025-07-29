@@ -3,5 +3,5 @@
 
 set -e
 
-ln -s /opt/bpx-beacon-client/resources/app.asar.unpacked/daemon/bpx /usr/bin/bpx || true
-ln -s /opt/bpx-beacon-client/bpx-gui /usr/bin/bpx-gui || true
+ln -s /opt/corpochain-beacon-client/resources/app.asar.unpacked/daemon/corpochain /usr/bin/corpochain || true
+ln -s /opt/corpochain-beacon-client/corpochain-gui /usr/bin/corpochain-gui || true

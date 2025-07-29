@@ -162,7 +162,7 @@ if [ "$SCRIPT_DIR" != "$PWD" ]; then
 fi
 
 if [ "$VIRTUAL_ENV" = "" ]; then
-  echo "This requires the bpx python virtual environment."
+  echo "This requires the corpochain python virtual environment."
   echo "Execute '. ./activate' before running."
   exit 1
 fi

@@ -15,7 +15,7 @@ if ($d)
 
 if ([Environment]::Is64BitOperatingSystem -eq $false)
 {
-    Write-Output "BPX requires a 64-bit Windows installation"
+    Write-Output "Corpochain requires a 64-bit Windows installation"
     Exit 1
 }
 
@@ -116,8 +116,8 @@ if ($p)
 }
 
 Write-Output ""
-Write-Output "BPX Beacon Client .\Install.ps1 complete."
+Write-Output "Corpochain Beacon Client .\Install.ps1 complete."
 Write-Output ""
 Write-Output "To install the GUI run '.\venv\scripts\Activate.ps1' then '.\Install-gui.ps1'."
 Write-Output ""
-Write-Output "Type '.\venv\Scripts\Activate.ps1' and then 'bpx init' to begin."
+Write-Output "Type '.\venv\Scripts\Activate.ps1' and then 'corpochain init' to begin."

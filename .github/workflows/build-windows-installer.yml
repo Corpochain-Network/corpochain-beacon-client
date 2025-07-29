@@ -103,9 +103,9 @@ jobs:
         python -m venv ../venv
         source ../venv/Scripts/activate
         pip3 install setuptools_scm
-        BPX_INSTALLER_VERSION=$(python ./build_scripts/installer-version.py)
-        echo "$BPX_INSTALLER_VERSION"
-        echo "BPX_INSTALLER_VERSION=$BPX_INSTALLER_VERSION" >>$GITHUB_OUTPUT
+        CORPOCHAIN_INSTALLER_VERSION=$(python ./build_scripts/installer-version.py)
+        echo "$CORPOCHAIN_INSTALLER_VERSION"
+        echo "CORPOCHAIN_INSTALLER_VERSION=$CORPOCHAIN_INSTALLER_VERSION" >>$GITHUB_OUTPUT
         deactivate
 
     - name: Get latest madmax plotter
@@ -165,18 +165,18 @@ jobs:
       id: gui-ref
       shell: bash
       run: |
-        gui_ref=$(git submodule status bpx-gui | sed -e 's/^ //g' -e 's/ bpx-gui.*$//g')
+        gui_ref=$(git submodule status corpochain-gui | sed -e 's/^ //g' -e 's/ corpochain-gui.*$//g')
         echo "${gui_ref}"
         echo "GUI_REF=${gui_ref}" >>$GITHUB_OUTPUT
-        echo "rm -rf ./bpx-gui"
-        rm -rf ./bpx-gui
+        echo "rm -rf ./corpochain-gui"
+        rm -rf ./corpochain-gui
 
     - name: Cache GUI
       uses: actions/cache@v3
       id: cache-gui
       with:
-        path: .\bpx-gui
-        key: ${{ runner.os }}-bpx-gui-${{ steps.gui-ref.outputs.GUI_REF }}
+        path: .\corpochain-gui
+        key: ${{ runner.os }}-corpochain-gui-${{ steps.gui-ref.outputs.GUI_REF }}
 
     - if: steps.cache-gui.outputs.cache-hit != 'true'
       name: Build GUI
@@ -187,7 +187,7 @@ jobs:
 
     - name: Build Windows installer
       env:
-        BPX_INSTALLER_VERSION: ${{ steps.version_number.outputs.BPX_INSTALLER_VERSION }}
+        CORPOCHAIN_INSTALLER_VERSION: ${{ steps.version_number.outputs.CORPOCHAIN_INSTALLER_VERSION }}
       run: |
         $env:path="C:\Program` Files` (x86)\Microsoft` Visual` Studio\2019\Enterprise\SDK\ScopeCppSDK\vc15\VC\bin\;$env:path"
         cd .\build_scripts
@@ -196,8 +196,8 @@ jobs:
     - name: Upload Installer to artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: bpx-installers-windows-exe-intel
-        path: ${{ github.workspace }}\bpx-gui\release-builds\
+        name: corpochain-installers-windows-exe-intel
+        path: ${{ github.workspace }}\corpochain-gui\release-builds\
 
     - name: Get tag name
       if: startsWith(github.ref, 'refs/tags/')
@@ -211,13 +211,13 @@ jobs:
       if: env.RELEASE == 'true'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BPX_INSTALLER_VERSION: ${{ steps.version_number.outputs.BPX_INSTALLER_VERSION }}
+        CORPOCHAIN_INSTALLER_VERSION: ${{ steps.version_number.outputs.CORPOCHAIN_INSTALLER_VERSION }}
       run: |
-        gh release upload $env:RELEASE_TAG ${{ github.workspace }}\bpx-gui\release-builds\windows-installer\bpx-beacon-client_${{ steps.version_number.outputs.BPX_INSTALLER_VERSION }}_amd64.exe
+        gh release upload $env:RELEASE_TAG ${{ github.workspace }}\corpochain-gui\release-builds\windows-installer\corpochain-beacon-client_${{ steps.version_number.outputs.CORPOCHAIN_INSTALLER_VERSION }}_amd64.exe
 
     - name: Remove Windows exe and installer to exclude from cache
       run: |
-        Remove-Item .\bpx-gui\packages\gui\dist -Recurse -Force
-        Remove-Item .\bpx-gui\packages\gui\daemon -Recurse -Force
-        Remove-Item .\bpx-gui\bpx-gui-win32-x64 -Recurse -Force
-        Remove-Item .\bpx-gui\release-builds -Recurse -Force
+        Remove-Item .\corpochain-gui\packages\gui\dist -Recurse -Force
+        Remove-Item .\corpochain-gui\packages\gui\daemon -Recurse -Force
+        Remove-Item .\corpochain-gui\corpochain-gui-win32-x64 -Recurse -Force
+        Remove-Item .\corpochain-gui\release-builds -Recurse -Force

@@ -24,7 +24,7 @@ config/keys.yaml
 config/plots.yaml
 
 # Bundled code
-bpx-beacon-client.tar.gz.tar.gz
+corpochain-beacon-client.tar.gz.tar.gz
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -50,7 +50,7 @@ activate
 .idea
 
 # Packaging
-bpx-beacon-client.tar.gz
+corpochain-beacon-client.tar.gz
 
 # Timelord utilities
 vdf_bench
@@ -72,18 +72,18 @@ vdf_bench
 *.pstats
 
 # Dev config react
-# bpx-gui/src/dev_config.js
+# corpochain-gui/src/dev_config.js
 # React built app
-bpx-gui/.eslintcache
-bpx-gui/build
+corpochain-gui/.eslintcache
+corpochain-gui/build
 build_scripts/dist
 build_scripts/*.Dmg
-bpx-gui/src/locales/_build
+corpochain-gui/src/locales/_build
 build_scripts\win_build
 build_scripts/win_build
 win_code_sign_cert.p12
 
-# bpx-beacon-client wheel build folder
+# corpochain-beacon-client wheel build folder
 build/
 
 # Temporal `n` (node version manager) directory

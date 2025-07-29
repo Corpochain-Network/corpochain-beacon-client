@@ -26,7 +26,7 @@ dependencies = [
     "filelock==3.13.1",  # For reading and writing config multiprocess and multithread safely  (non-reentrant locks)
     "keyring==24.3.0",  # Store keys in MacOS Keychain, Windows Credential Locker
     "PyYAML==6.0.1",  # Used for config file format
-    "setproctitle==1.3.3",  # Gives the bpx processes readable names
+    "setproctitle==1.3.3",  # Gives the corpochain processes readable names
     "sortedcontainers==2.4.0",  # For maintaining sorted mempools
     "click==8.1.3",  # For the CLI
     "dnspython==2.4.2",  # Query DNS seeds
@@ -72,46 +72,46 @@ dev_dependencies = [
 ]
 
 kwargs = dict(
-    name="bpx-beacon-client",
-    author="BPX Chain",
-    author_email="hello@bpxchain.cc",
-    description="BPX Beacon Client",
-    url="https:/bpxchain.cc/",
+    name="corpochain-beacon-client",
+    author="Corpochain",
+    author_email="hello@corpochain.pl",
+    description="Corpochain Beacon Client",
+    url="https:/corpochain.pl/",
     license="Apache License",
     python_requires=">=3.7, <4",
-    keywords="bpx blockchain node beacon",
+    keywords="corpochain blockchain node beacon",
     install_requires=dependencies,
     extras_require=dict(
         dev=dev_dependencies,
         upnp=upnp_dependencies,
     ),
-    packages=find_packages(include=["build_scripts", "bpx", "bpx.*", "mozilla-ca"]),
+    packages=find_packages(include=["build_scripts", "corpochain", "corpochain.*", "mozilla-ca"]),
     entry_points={
         "console_scripts": [
-            "bpx = bpx.cmds.bpx:main",
-            "bpx_daemon = bpx.daemon.server:main",
-            "bpx_beacon = bpx.server.start_beacon:main",
-            "bpx_harvester = bpx.server.start_harvester:main",
-            "bpx_farmer = bpx.server.start_farmer:main",
-            "bpx_introducer = bpx.server.start_introducer:main",
-            "bpx_crawler = bpx.seeder.start_crawler:main",
-            "bpx_seeder = bpx.seeder.dns_server:main",
-            "bpx_timelord = bpx.server.start_timelord:main",
-            "bpx_timelord_launcher = bpx.timelord.timelord_launcher:main",
+            "corpochain = corpochain.cmds.corpochain:main",
+            "corpochain_daemon = corpochain.daemon.server:main",
+            "corpochain_beacon = corpochain.server.start_beacon:main",
+            "corpochain_harvester = corpochain.server.start_harvester:main",
+            "corpochain_farmer = corpochain.server.start_farmer:main",
+            "corpochain_introducer = corpochain.server.start_introducer:main",
+            "corpochain_crawler = corpochain.seeder.start_crawler:main",
+            "corpochain_seeder = corpochain.seeder.dns_server:main",
+            "corpochain_timelord = corpochain.server.start_timelord:main",
+            "corpochain_timelord_launcher = corpochain.timelord.timelord_launcher:main",
         ]
     },
     package_data={
-        "bpx": ["pyinstaller.spec"],
+        "corpochain": ["pyinstaller.spec"],
         "": ["py.typed"],
-        "bpx.util": ["initial-*.yaml", "english.txt"],
-        "bpx.ssl": ["bpx_ca.crt", "bpx_ca.key"],
+        "corpochain.util": ["initial-*.yaml", "english.txt"],
+        "corpochain.ssl": ["corpochain_ca.crt", "corpochain_ca.key"],
         "mozilla-ca": ["cacert.pem"],
     },
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     zip_safe=False,
     project_urls={
-        "Source": "https://github.com/bpx-chain/bpx-beacon-client/",
+        "Source": "https://github.com/Corpochain-Network/corpochain-beacon-client/",
     },
 )
 
@@ -119,5 +119,5 @@ if "setup_file" in sys.modules:
     # include dev deps in regular deps when run in snyk
     dependencies.extend(dev_dependencies)
 
-if len(os.environ.get("BPX_SKIP_SETUP", "")) < 1:
+if len(os.environ.get("CORPOCHAIN_SKIP_SETUP", "")) < 1:
     setup(**kwargs)  # type: ignore

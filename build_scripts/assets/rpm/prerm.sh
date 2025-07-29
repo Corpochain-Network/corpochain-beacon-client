@@ -3,5 +3,5 @@
 
 set -e
 
-unlink /usr/bin/bpx || true
-unlink /usr/bin/bpx-gui || true
+unlink /usr/bin/corpochain || true
+unlink /usr/bin/corpochain-gui || true

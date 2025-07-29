@@ -12,9 +12,9 @@ npm ci
 $Env:Path = $(npm bin) + ";" + $Env:Path
 
 Set-Location -Path "..\..\" -PassThru
-git submodule update --init bpx-gui
+git submodule update --init corpochain-gui
 
-Set-Location -Path ".\bpx-gui" -PassThru
+Set-Location -Path ".\corpochain-gui" -PassThru
 
 Write-Output "   ---"
 Write-Output "Build GUI npm modules"
@@ -39,9 +39,9 @@ If ($LastExitCode -gt 0){
 # Remove unused packages
 Remove-Item node_modules -Recurse -Force
 
-# Other than `bpx-gui/package/gui`, all other packages are no longer necessary after build.
+# Other than `corpochain-gui/package/gui`, all other packages are no longer necessary after build.
 # Since these unused packages make cache unnecessarily fat, unused packages should be removed.
-Write-Output "Remove unused @bpx-chain packages to make cache slim"
+Write-Output "Remove unused @Corpochain-Network packages to make cache slim"
 Remove-Item packages\api -Recurse -Force
 Remove-Item packages\api-react -Recurse -Force
 Remove-Item packages\core -Recurse -Force
@@ -54,5 +54,5 @@ Remove-Item electron\dist -Recurse -Force # ~186MB
 Remove-Item "@mui" -Recurse -Force # ~71MB
 Remove-Item typescript -Recurse -Force # ~63MB
 
-# Remove `packages/gui/node_modules/@bpx-chain` because it causes an error on later `electron-packager` command
-Remove-Item "@bpx-chain" -Recurse -Force
+# Remove `packages/gui/node_modules/@Corpochain-Network` because it causes an error on later `electron-packager` command
+Remove-Item "@Corpochain-Network" -Recurse -Force
