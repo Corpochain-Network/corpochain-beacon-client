@@ -1,3 +1,6 @@
 [submodule "corpochani-gui"]
 	path = corpochani-gui
 	url = https://github.com/Corpochain-Network/corpochani-gui.git
+[submodule "corpochain-gui"]
+	path = corpochain-gui
+	url = https://github.com/Corpochain-Network/corpochain-gui.git
