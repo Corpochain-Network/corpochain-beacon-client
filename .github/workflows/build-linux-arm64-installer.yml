@@ -161,7 +161,7 @@ jobs:
         sh build_linux_deb-2-installer.sh arm64
 
     - name: Upload Linux artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: corpochain-installers-linux-deb-arm64
         path: ${{ github.workspace }}/build_scripts/final_installer/

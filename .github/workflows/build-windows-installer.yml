@@ -194,7 +194,7 @@ jobs:
         .\build_windows-2-installer.ps1
 
     - name: Upload Installer to artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: corpochain-installers-windows-exe-intel
         path: ${{ github.workspace }}\corpochain-gui\release-builds\
