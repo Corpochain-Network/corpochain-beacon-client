@@ -45,7 +45,13 @@ Set-Location -Path "corpochain-gui\packages\gui" -PassThru
 Write-Output "   ---"
 Write-Output "Increase the stack for corpochain command for (corpochain plots create) chiapos limitations"
 # editbin.exe needs to be in the path
-editbin.exe /STACK:8000000 daemon\corpochain.exe
+$editbinPath = Get-ChildItem -Path "C:\Program Files\Microsoft Visual Studio\2022" -Filter editbin.exe -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
+if (-not $editbinPath) {
+    Write-Error "editbin.exe not found"
+    exit 1
+}
+
+& $editbinPath /STACK:8000000 daemon\corpochain.exe
 Write-Output "   ---"
 
 $packageVersion = "$env:CORPOCHAIN_INSTALLER_VERSION"
