@@ -158,6 +158,8 @@ datas.append((f"{ROOT}/corpochain/util/initial-config.yaml", "corpochain/util"))
 datas.append((f"{ROOT}/corpochain/ssl/*", "corpochain/ssl"))
 datas.append((f"{ROOT}/mozilla-ca/*", "mozilla-ca"))
 datas.append(version_data)
+py_ecc_metadata = copy_metadata("py_ecc")[0]
+datas.append(py_ecc_metadata)
 
 pathex = []
 
