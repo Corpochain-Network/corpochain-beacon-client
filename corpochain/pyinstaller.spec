@@ -67,7 +67,7 @@ SERVERS = [
 
 entry_points = ["corpochain.cmds.corpochain"] + [f"corpochain.server.start_{s}" for s in SERVERS]
 
-hiddenimports = ["py_ecc"]
+hiddenimports = collect_submodules("py_ecc")
 hiddenimports.extend(entry_points)
 hiddenimports.extend(keyring_imports)
 
